@@ -8,3 +8,9 @@ Tap this repository:
 ```bash
 brew tap devtical/formulae
 ```
+
+Install the packages it contains like any other Homebrew package:
+
+```bash
+brew install devtical/formulae/myssh
+```
