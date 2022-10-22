@@ -11,6 +11,7 @@ brew tap devtical/formulae
 
 Install the packages it contains like any other Homebrew package:
 
-```bash
-brew install devtical/formulae/myssh
-```
+| Tools | Install |
+| --- | --- |
+| [MySSH](https://github.com/devtical/myssh) | `brew install devtical/formulae/myssh` |
+| [Compack](https://github.com/devtical/compack) | `brew install devtical/formulae/compack` |
