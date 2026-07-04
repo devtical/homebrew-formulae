@@ -1,10 +1,21 @@
 class Myssh < Formula
-  desc "Checking for existing SSH keys"
+  desc "Inspect and manage SSH keys in your .ssh directory"
   homepage "https://github.com/devtical/myssh"
-  url "https://github.com/devtical/myssh/releases/download/v0.0.3/myssh-x86_64-apple-darwin.tar.gz"
-  version "0.0.3"
-  sha256 "f25b60aa14eee0b4d4d9b9195348874d387d33fc6390eb8df1664cd0ffd3fd79"
+  version "0.0.4"
   license "Apache-2.0"
+
+  depends_on macos: :monterey
+
+  on_macos do
+    on_intel do
+      url "https://github.com/devtical/myssh/releases/download/v0.0.4/myssh-x86_64-apple-darwin.tar.gz"
+      sha256 "a499c3d34f24a8df061eb5af1a3adfa38ccb9b808b21bb9648d5baad906bf3a9"
+    end
+    on_arm do
+      url "https://github.com/devtical/myssh/releases/download/v0.0.4/myssh-aarch64-apple-darwin.tar.gz"
+      sha256 "6a29180c38a96cae1bf646fa2356c7ec258dbb77ba6335e4df87eae08b6af222"
+    end
+  end
 
   def install
     bin.install "myssh"
