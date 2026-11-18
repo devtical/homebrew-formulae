@@ -6,7 +6,13 @@ class Compack < Formula
   sha256 "242ad4cb05bbc4cb360e9268ecc4c8ea5ef273f35ad9726fd9d582e48de6cd75"
   license "MIT"
 
+  depends_on "php"
+
   def install
     bin.install "compack"
+  end
+
+  test do
+    assert_match "Compack", shell_output("#{bin}/compack --version")
   end
 end
