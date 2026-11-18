@@ -1,10 +1,7 @@
 class Myssh < Formula
   desc "Inspect and manage SSH keys in your .ssh directory"
   homepage "https://github.com/devtical/myssh"
-  version "0.0.5"
   license "Apache-2.0"
-
-  depends_on macos: :monterey
 
   on_macos do
     on_intel do
@@ -17,8 +14,25 @@ class Myssh < Formula
     end
   end
 
+  on_linux do
+    on_intel do
+      url "https://github.com/devtical/myssh/archive/refs/tags/v0.0.5.tar.gz"
+      sha256 "ecf9e76416fa6358047b27159b7017089b7cc18ad8bef5741b206432dd10fd73"
+    end
+    on_arm do
+      url "https://github.com/devtical/myssh/archive/refs/tags/v0.0.5.tar.gz"
+      sha256 "ecf9e76416fa6358047b27159b7017089b7cc18ad8bef5741b206432dd10fd73"
+    end
+
+    depends_on "rust" => :build
+  end
+
   def install
-    bin.install "myssh"
+    if OS.mac?
+      bin.install "myssh"
+    else
+      system "cargo", "install", *std_cargo_args
+    end
   end
 
   test do
